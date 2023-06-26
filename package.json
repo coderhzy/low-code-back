@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
-    "dev": "turbo run dev",
+    "dev": "turbo run dev -- --watch",
     "start:lowcode": "nest start",
     "start:devops": "nest start devops",
     "start:dev": "nest start --watch",

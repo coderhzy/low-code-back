@@ -2,9 +2,14 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { VERSION_NEUTRAL, VersioningType } from '@nestjs/common';
 import { TransformInterceptor } from '../../../libs/comm/interceptors/transform.interceptor';
+import { AllExceptionsFilter } from '../../../libs/comm/exceptions/base.exception.filter';
+import { HttpExceptionFilter } from '../../../libs/comm/exceptions/http.exception.filter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalFilters(new HttpExceptionFilter(), new AllExceptionsFilter());
 
   // 接口版本化管理
   app.enableVersioning({
@@ -12,8 +17,7 @@ async function bootstrap() {
     type: VersioningType.URI,
   });
 
-  app.useGlobalInterceptors(new TransformInterceptor());
-
-  await app.listen(3000);
+  await app.listen(9999);
 }
+
 bootstrap();
