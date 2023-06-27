@@ -1,13 +1,17 @@
 import { Controller, Get, Version, VERSION_NEUTRAL } from '@nestjs/common';
 import { AppService } from './app.service';
 import { BusinessException } from '../../../libs/comm/exceptions/business.exception';
+import { ConfigService } from '@nestjs/config';
 
 @Controller({
   path: 'user',
   version: '1',
 })
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    private readonly appService: AppService,
+    private readonly configService: ConfigService,
+  ) {}
 
   @Get()
   @Version([VERSION_NEUTRAL, '1'])
@@ -41,5 +45,11 @@ export class AppController {
     }
 
     return this.appService.getHello();
+  }
+
+  @Get('getTestName')
+  @Version([VERSION_NEUTRAL, '1'])
+  getTestName() {
+    return this.configService.get('TEST_VALUE').name;
   }
 }

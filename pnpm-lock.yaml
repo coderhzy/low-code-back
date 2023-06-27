@@ -11,12 +11,18 @@ importers:
       '@nestjs/common':
         specifier: ^9.0.0
         version: registry.npmjs.org/@nestjs/common@9.0.0(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      '@nestjs/config':
+        specifier: ^3.0.0
+        version: registry.npmjs.org/@nestjs/config@3.0.0(@nestjs/common@9.0.0)(reflect-metadata@0.1.13)
       '@nestjs/core':
         specifier: ^9.0.0
         version: registry.npmjs.org/@nestjs/core@9.0.0(@nestjs/common@9.0.0)(@nestjs/platform-express@9.0.0)(reflect-metadata@0.1.13)(rxjs@7.2.0)
       '@nestjs/platform-express':
         specifier: ^9.0.0
         version: registry.npmjs.org/@nestjs/platform-express@9.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)
+      cross-env:
+        specifier: ^7.0.3
+        version: registry.npmjs.org/cross-env@7.0.3
       reflect-metadata:
         specifier: ^0.1.13
         version: registry.npmjs.org/reflect-metadata@0.1.13
@@ -26,6 +32,9 @@ importers:
       turbo:
         specifier: ^1.10.6
         version: registry.npmjs.org/turbo@1.10.6
+      yaml:
+        specifier: ^2.3.1
+        version: registry.npmjs.org/yaml@2.3.1
     devDependencies:
       '@nestjs/cli':
         specifier: ^9.0.0
@@ -90,6 +99,10 @@ importers:
       typescript:
         specifier: ^5.0.0
         version: registry.npmjs.org/typescript@5.0.2
+
+  apps/devops: {}
+
+  apps/low-code-back: {}
 
 packages:
 
@@ -1004,6 +1017,23 @@ packages:
       rxjs: registry.npmjs.org/rxjs@7.2.0
       tslib: registry.npmjs.org/tslib@2.4.0
       uuid: registry.npmjs.org/uuid@8.3.2
+
+  registry.npmjs.org/@nestjs/config@3.0.0(@nestjs/common@9.0.0)(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-fzASk1Uv6AjdE6uA1na8zpqRCXAhRpcfgpCVv3SAKlgJ3VR3bEjcI4G17WHLgLBsmPzI1ofdkSI451WLD1F1Rw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@nestjs/config/-/config-3.0.0.tgz}
+    id: registry.npmjs.org/@nestjs/config/3.0.0
+    name: '@nestjs/config'
+    version: 3.0.0
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      reflect-metadata: ^0.1.13
+    dependencies:
+      '@nestjs/common': registry.npmjs.org/@nestjs/common@9.0.0(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      dotenv: registry.npmjs.org/dotenv@16.1.4
+      dotenv-expand: registry.npmjs.org/dotenv-expand@10.0.0
+      lodash: registry.npmjs.org/lodash@4.17.21
+      reflect-metadata: registry.npmjs.org/reflect-metadata@0.1.13
+      uuid: registry.npmjs.org/uuid@9.0.0
+    dev: false
 
   registry.npmjs.org/@nestjs/core@9.0.0(@nestjs/common@9.0.0)(@nestjs/platform-express@9.0.0)(reflect-metadata@0.1.13)(rxjs@7.2.0):
     resolution: {integrity: sha512-Ib25JrYQf5ICro19FBytoMpMQicanC4HG3goPBSqsolu+AhVzSU0OhDwmmiDy3aHgmheFnNEEdUH+Gh5Rm2cNw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/@nestjs/core/-/core-9.0.0.tgz}
@@ -2615,6 +2645,16 @@ packages:
     version: 1.1.1
     dev: true
 
+  registry.npmjs.org/cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/cross-env/-/cross-env-7.0.3.tgz}
+    name: cross-env
+    version: 7.0.3
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: registry.npmjs.org/cross-spawn@7.0.3
+    dev: false
+
   registry.npmjs.org/cross-spawn@7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz}
     name: cross-spawn
@@ -2624,7 +2664,6 @@ packages:
       path-key: registry.npmjs.org/path-key@3.1.1
       shebang-command: registry.npmjs.org/shebang-command@2.0.0
       which: registry.npmjs.org/which@2.0.2
-    dev: true
 
   registry.npmjs.org/debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/debug/-/debug-2.6.9.tgz}
@@ -2736,6 +2775,20 @@ packages:
     dependencies:
       esutils: registry.npmjs.org/esutils@2.0.3
     dev: true
+
+  registry.npmjs.org/dotenv-expand@10.0.0:
+    resolution: {integrity: sha512-GopVGCpVS1UKH75VKHGuQFqS1Gusej0z4FyQkPdwjil2gNIv+LNsqBlboOzpJFZKVT95GkCyWJbBSdFEFUWI2A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/dotenv-expand/-/dotenv-expand-10.0.0.tgz}
+    name: dotenv-expand
+    version: 10.0.0
+    engines: {node: '>=12'}
+    dev: false
+
+  registry.npmjs.org/dotenv@16.1.4:
+    resolution: {integrity: sha512-m55RtE8AsPeJBpOIFKihEmqUcoVncQIwo7x9U8ZwLEZw9ZpXboz2c+rvog+jUaJvVrZ5kBOeYQBX5+8Aa/OZQw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/dotenv/-/dotenv-16.1.4.tgz}
+    name: dotenv
+    version: 16.1.4
+    engines: {node: '>=12'}
+    dev: false
 
   registry.npmjs.org/ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz}
@@ -3783,7 +3836,6 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz}
     name: isexe
     version: 2.0.0
-    dev: true
 
   registry.npmjs.org/istanbul-lib-coverage@3.2.0:
     resolution: {integrity: sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz}
@@ -4476,7 +4528,6 @@ packages:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz}
     name: lodash
     version: 4.17.21
-    dev: true
 
   registry.npmjs.org/log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/log-symbols/-/log-symbols-4.1.0.tgz}
@@ -4923,7 +4974,6 @@ packages:
     name: path-key
     version: 3.1.1
     engines: {node: '>=8'}
-    dev: true
 
   registry.npmjs.org/path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz}
@@ -5398,14 +5448,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       shebang-regex: registry.npmjs.org/shebang-regex@3.0.0
-    dev: true
 
   registry.npmjs.org/shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/shebang-regex/-/shebang-regex-3.0.0.tgz}
     name: shebang-regex
     version: 3.0.0
     engines: {node: '>=8'}
-    dev: true
 
   registry.npmjs.org/shelljs@0.8.5:
     resolution: {integrity: sha512-TiwcRcrkhHvbrZbnRcFYMLl30Dfov3HKqzp5tO5b4pt6G/SezKcYhmDg15zXVBswHmctSAQKznqNW2LO5tTDow==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/shelljs/-/shelljs-0.8.5.tgz}
@@ -6156,6 +6204,13 @@ packages:
     version: 8.3.2
     hasBin: true
 
+  registry.npmjs.org/uuid@9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/uuid/-/uuid-9.0.0.tgz}
+    name: uuid
+    version: 9.0.0
+    hasBin: true
+    dev: false
+
   registry.npmjs.org/v8-compile-cache@2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz}
     name: v8-compile-cache
@@ -6324,7 +6379,6 @@ packages:
     hasBin: true
     dependencies:
       isexe: registry.npmjs.org/isexe@2.0.0
-    dev: true
 
   registry.npmjs.org/windows-release@4.0.0:
     resolution: {integrity: sha512-OxmV4wzDKB1x7AZaZgXMVsdJ1qER1ed83ZrTYd5Bwq2HfJVg3DJS8nqlAG4sMoJ7mu8cuRmLEYyU13BKwctRAg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/windows-release/-/windows-release-4.0.0.tgz}
@@ -6400,6 +6454,13 @@ packages:
     version: 1.10.2
     engines: {node: '>= 6'}
     dev: true
+
+  registry.npmjs.org/yaml@2.3.1:
+    resolution: {integrity: sha512-2eHWfjaoXgTBC2jNM1LRef62VQa0umtvRiDSk6HSzW7RvS5YtkabJrwYLLEKWBc8a5U2PTSCs+dJjUTJdlHsWQ==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/yaml/-/yaml-2.3.1.tgz}
+    name: yaml
+    version: 2.3.1
+    engines: {node: '>= 14'}
+    dev: false
 
   registry.npmjs.org/yargs-parser@21.0.1:
     resolution: {integrity: sha512-9BK1jFpLzJROCI5TzwZL/TU4gqjK5xiHV/RfWLOahrjAko/e4DJkRDZQXfvqAsiZzzYhgAzbgz6lg48jcm4GLg==, registry: https://registry.yarnpkg.com/, tarball: https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.0.1.tgz}
