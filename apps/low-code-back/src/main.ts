@@ -9,7 +9,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.useGlobalInterceptors(new TransformInterceptor());
-  app.useGlobalFilters(new HttpExceptionFilter(), new AllExceptionsFilter());
+  // 异常过滤器
+  app.useGlobalFilters(new AllExceptionsFilter(), new HttpExceptionFilter());
 
   // 接口版本化管理
   app.enableVersioning({
